@@ -13,7 +13,7 @@ class NotesViewBody extends StatelessWidget {
       body: 
           Padding(
             padding: const EdgeInsets.only(left:16.0,right: 16),
-            child: Column(children: [const SizedBox(height: 45,),
+            child: Column(children: [const SizedBox(height: 55,),
               
                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [const Text('Notes',style: TextStyle(fontSize: 28,),),
