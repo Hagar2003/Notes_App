@@ -21,7 +21,7 @@ class AddNode extends StatelessWidget {
               maxLines: 5,),
               const SizedBox(height: 30,),
               CustomButton(text: 'Add'),
-              const SizedBox(height: 30,)],
+              const SizedBox(height: 40,)],
           ),
         ),
       ),
