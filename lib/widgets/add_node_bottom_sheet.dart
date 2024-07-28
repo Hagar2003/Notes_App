@@ -13,7 +13,10 @@ class AddNode extends StatelessWidget {
         padding: const EdgeInsets.only( left: 16.0,right: 16),
         child: Column(
           children: [const SizedBox(height: 40,),
-            CustomTextField(hint :'Title')],
+            CustomTextField(hint :'Title'),
+            SizedBox(height:20),
+            CustomTextField(hint: 'content',
+            maxLines: 5,)],
         ),
       ),
     );
