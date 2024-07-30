@@ -1,8 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
-part 'note_cubit_dart_state.dart';
+
+part 'add_note_cubit.dart';
 
 class NoteCubitDartCubit extends Cubit<NoteCubitDartState> {
   NoteCubitDartCubit() : super(NoteCubitDartInitial());
+  addNote(NoteModel){
+
+  }
+  
 }
