@@ -7,7 +7,9 @@ part 'add_note_cubit.dart';
 
 class NoteCubitDartCubit extends Cubit<NoteCubitDartState> {
   NoteCubitDartCubit() : super(NoteCubitDartInitial());
+  Color color= const Color(0xffAC3931);
   addNote(NoteModel note) async {
+    note.color = color.value;
     emit(NoteLoading());
     try {
       var notesBx = Hive.box<NoteModel>('notesBox');
@@ -15,7 +17,7 @@ class NoteCubitDartCubit extends Cubit<NoteCubitDartState> {
       await notesBx.add(note);
       emit(NoteSuccess());
     } catch (e) {
-    emit( NoteFailure(errorMessage:e.toString()));
+      emit(NoteFailure(errorMessage: e.toString()));
     }
   }
 }
