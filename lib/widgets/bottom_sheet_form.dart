@@ -12,11 +12,14 @@ class BottomSheetForm extends StatefulWidget {
   State<BottomSheetForm> createState() => _MyWidgetState();
 }
 
-final GlobalKey<FormState> formKey = GlobalKey();
-AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-String? title, subTitle;
+// final GlobalKey<FormState> formKey = GlobalKey();
+// AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+// String? title, subTitle;
 
 class _MyWidgetState extends State<BottomSheetForm> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+String? title, subTitle;
   @override
   Widget build(BuildContext context) {
     return Form(

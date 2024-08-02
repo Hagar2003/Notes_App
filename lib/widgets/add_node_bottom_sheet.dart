@@ -32,7 +32,7 @@ class _AddNodeState extends State<AddNode> {
                   padding: EdgeInsets.only(
                       left: 16,
                       right: 16,
-                      bottom: MediaQuery.of(context).viewInsets.bottom),
+                      bottom: MediaQuery.of(context).viewInsets.bottom),//height of keyboard
                   child: const SingleChildScrollView(
                     child: BottomSheetForm(),
                   )));
