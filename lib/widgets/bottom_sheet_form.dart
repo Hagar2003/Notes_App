@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/cubit/note_cubit_dart_cubit.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
 
@@ -8,10 +11,11 @@ class BottomSheetForm extends StatefulWidget {
   @override
   State<BottomSheetForm> createState() => _MyWidgetState();
 }
+
 final GlobalKey<FormState> formKey = GlobalKey();
-  AutovalidateMode autovalidateMode =
-      AutovalidateMode.disabled;
-        String? title, subTitle;
+AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+String? title, subTitle;
+
 class _MyWidgetState extends State<BottomSheetForm> {
   @override
   Widget build(BuildContext context) {
@@ -40,15 +44,27 @@ class _MyWidgetState extends State<BottomSheetForm> {
           const SizedBox(
             height: 30,
           ),
-          CustomButton(
-            text: 'Add',
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<NoteCubitDartCubit, NoteCubitDartState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoafing: state is NoteLoading ? true : false,
+                text: 'Add',
+                onTap: () {
+              
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+                    var noteM = NoteModel(
+                        title: title!,
+                        subtitle: subTitle!,
+                        color: Colors.blue.value,
+                        date: DateTime.now().toString());
+                    BlocProvider.of<NoteCubitDartCubit>(context).addNote(noteM);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
           const SizedBox(
