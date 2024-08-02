@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/cubit/cubit/notes_cubit_cubit.dart';
 import 'package:notes_app/cubits/cubit/note_cubit_dart_cubit.dart';
 import 'package:notes_app/widgets/bottom_sheet_form.dart';
 
@@ -22,7 +23,7 @@ class _AddNodeState extends State<AddNode> {
           if (state is NoteFailure) {}
 
           if (state is NoteSuccess) {
-          //  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+           BlocProvider.of<NotesCubitCubit>(context).fetchAllNotes();
             Navigator.pop(context);
           }
         }, builder: (context, state) {
