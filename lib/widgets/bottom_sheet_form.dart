@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/cubit/note_cubit_dart_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
@@ -60,7 +61,7 @@ String? title, subTitle;
                         title: title!,
                         subtitle: subTitle!,
                         color: Colors.blue.value,
-                        date: DateTime.now().toString());
+                        date: DateFormat('dd-mm-yyyy').format(DateTime.now()));
                     BlocProvider.of<NoteCubitDartCubit>(context).addNote(noteM);
                   } else {
                     autovalidateMode = AutovalidateMode.always;
