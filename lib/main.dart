@@ -5,7 +5,6 @@ import 'package:notes_app/cubits/cubit/note_cubit_dart_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/notes_view.dart';
 
-
 //import 'package:build_runner/build_runner.dart';
 void main() async {
   await Hive.initFlutter();
@@ -19,17 +18,23 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
+    return  //provide cubit
      MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (context) => NoteCubitDartCubit())
-    
-      
+
       ],
-      child: Container(),
+      child:MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: "Poppins",
+        ),
+        home: const NotesView(),
+      ),
      )
-    ;
+     ;
     
   }
 }
